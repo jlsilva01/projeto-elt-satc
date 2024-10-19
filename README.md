@@ -58,10 +58,6 @@ Estrutura de arquivos do projeto:
 
 Dentro da pasta `test` estão os arquivos para testar a conectividade no SQL Server e Azure ADLS.
 
-## Efetuando a cópia dos dados do SQL e jogando no Azure ADLS
-
-Para executar o arquivos, siga os passos abaixo:
-
 ```bash
 # Ativar o ambiente virtual python usando o UV
 uv venv
@@ -72,37 +68,56 @@ uv run ./test/test_connection_adls.py
 uv run ./test/test_connection_sqlserver.py
 ```
 
-Para copiar as tabelas do SQL Server e embarcar no Data Lake, na camada landing-zone, executar os comandos abaixo:
+## Efetuando a cópia dos dados do SQL e jogando no Azure ADLS
+
+1. Para copiar as tabelas do SQL Server e embarcar no Data Lake de maneira simples e pontual, na camada landing-zone, executar os comandos abaixo:
 
 ```bash
 uv run ./elt_sql_n_tabelas.py
 ```
 
+2. Para efetuar o mesmo processo, só que agora usando uma estrutura de Classes e métodos, escalável, use a estrutura abaixo:
+
+```
+└── elt
+   ├── azure_integration
+   │   ├── adls_service.py
+   │   └── __init__.py
+   ├── database
+   │   ├── __init__.py
+   │   └── sql_server_service.py
+   └── main.py
+```
+
+```bash
+uv run ./elt/main.py
+```
+
+Esta estrutura é escalável, pois caso necessite adicionar mais um banco de dados de origem, basta criar as classes e métodos do banco de dados em questão e adicionar o arquivo a pasta `database`.
+A mesma dinâmica vale para o destino (sendo azure), na pasta ´azure_integration`.
+Caso seja alguma origem diferente de Azure, criar uma nova pasta dentro de `elt` e criar o arquivo de serviço para a tecnologia em questão.
+
 
 ## Troubleshooting
 
-Para fazer a extração dos dados de um servidor SQL Server usando um Linux Ubuntu, através do PYODBC, você precisará instalar o driver ODBC do Microsoft SQL Server no Ubuntu (msodbcsql17). Esse driver permite que você se conecte a uma instância do SQL Server a partir de ferramentas ou linguagens que usam ODBC.
+Caso você esteja utilizando o S.O. Ubuntu, para fazer a extração dos dados de um servidor SQL Server (através do PYODBC), é necessário instalar o driver ODBC do Microsoft SQL Server para Ubuntu (msodbcsql17). Esse driver permite que a conexão a uma instância do SQL Server a partir de ferramentas ou linguagens que usam ODBC.
 
 ### 1. Importar a chave GPG da Microsoft
-Isso é necessário para que o sistema confie nos pacotes da Microsoft.
 
 ```bash
 curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
 ```
 ### 2. Adicionar o repositório da Microsoft
-Adicione o repositório do SQL Server para a versão do Ubuntu que você está utilizando. Este comando obtém o arquivo de configuração do repositório e o adiciona ao sistema.
 
 ```bash
 sudo add-apt-repository "$(curl https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/prod.list)"
 ```
 ### 3. Atualizar a lista de pacotes
-Após adicionar o repositório, atualize os pacotes do sistema:
 
 ```bash
 sudo apt-get update
 ```
 ### 4. Instalar o driver msodbcsql17
-Agora você pode instalar o driver ODBC para o SQL Server (msodbcsql17):
 
 ```bash
 sudo apt-get install msodbcsql17
@@ -114,7 +129,6 @@ Se você quiser instalar também ferramentas relacionadas, como o mssql-tools (q
 sudo apt-get install mssql-tools unixodbc-dev
 ```
 ### 6. Verificar a instalação
-Você pode verificar se o driver foi instalado corretamente listando os drivers ODBC disponíveis:
 
 ```bash
 odbcinst -q -d -n "ODBC Driver 17 for SQL Server"
