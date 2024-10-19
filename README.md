@@ -15,6 +15,14 @@ Este projeto utiliza a versão `3.12` do Python, o gerenciador de projeto em Pyt
 ```
 A versão de cada biblioteca dependerá da sua versão do Python.
 
+Para instalar as bibliotecas acima através do `uv` basta seguir o comando abaixo:
+
+```bash
+uv venv # abrir o ambiente virtual caso nao tenha sido ativado ainda
+source .venv/bin/activate # ativar o ambiente virtual
+uv add azure-core azure-identity azure-storage-file-datalake pandas pymongo pyodbc python-dotenv ruff sqlalchemy
+```
+
 Caso você não tenha a versão `3.12` para usar este projeto, basta executar o comando abaixo (usando o gerenciador de projetos python `uv`):
 
 ```bash
