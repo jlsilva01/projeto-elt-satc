@@ -50,11 +50,32 @@ Estrutura de arquivos do projeto:
 ├── README.md
 ├── test
 │   ├── test_connection_adls.py
-│   ├── test_connection_mongodb.py
 │   └── test_connection_sqlserver.py
 └── uv.lock
 ```
 
+Dentro da pasta `test` estão os arquivos para testar a conectividade no SQL Server e Azure ADLS.
+
+Para executar o arquivos, siga os passos abaixo:
+
+```bash
+# Ativar o ambiente virtual python usando o UV
+uv venv
+source .venv/bin/activate
+```
+```bash
+uv run ./test/test_connection_adls.py
+uv run ./test/test_connection_sqlserver.py
+```
+
+Para copiar as tabelas do SQL Server e embarcar no Data Lake, na camada landing-zone, executar os comandos abaixo:
+
+```bash
+uv run ./elt_sql_n_tabelas.py
+```
+
+
+## Troubleshooting
 
 Para fazer a extração dos dados de um servidor SQL Server usando um Linux Ubuntu, através do PYODBC, você precisará instalar o driver ODBC do Microsoft SQL Server no Ubuntu (msodbcsql17). Esse driver permite que você se conecte a uma instância do SQL Server a partir de ferramentas ou linguagens que usam ODBC.
 
