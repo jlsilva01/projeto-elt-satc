@@ -54,7 +54,11 @@ Estrutura de arquivos do projeto:
 └── uv.lock
 ```
 
+## Teste de Conectividade
+
 Dentro da pasta `test` estão os arquivos para testar a conectividade no SQL Server e Azure ADLS.
+
+## Efetuando a cópia dos dados do SQL e jogando no Azure ADLS
 
 Para executar o arquivos, siga os passos abaixo:
 
