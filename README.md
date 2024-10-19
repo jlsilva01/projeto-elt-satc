@@ -123,7 +123,7 @@ uv run ./elt/main.py
 ```
 
 Esta estrutura é escalável, pois caso necessite adicionar mais um banco de dados de origem, basta criar as classes e métodos do banco de dados em questão e adicionar o arquivo a pasta `database`.
-A mesma dinâmica vale para o destino (sendo azure), na pasta ´azure_integration`.
+A mesma dinâmica vale para o destino (sendo azure), na pasta `azure_integration`.
 Caso seja alguma origem diferente de Azure, criar uma nova pasta dentro de `elt` e criar o arquivo de serviço para a tecnologia em questão.
 
 
