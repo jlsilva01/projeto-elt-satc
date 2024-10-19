@@ -13,7 +13,6 @@ Este projeto utiliza a versão `3.12` do Python, o gerenciador de projeto em Pyt
     "ruff",
     "sqlalchemy",
 ```
-A versão de cada biblioteca dependerá da sua versão do Python.
 
 Para instalar as bibliotecas acima através do `uv` basta seguir o comando abaixo:
 
