@@ -1,5 +1,60 @@
 # Projeto para Extração de dados de um SQL Server e Carga em um Data Lake Storage da Azure (ADLS)
 
+Exemplo do arquivo `.env` que precisa ser criado para receber as credenciais de acesso ao SQL Server, Azure ADLS e ao MongoDB.
+
+```
+# Configurações do Azure Data Lake Storage
+ADLS_ACCOUNT_NAME=datalake2aee089e227c8fc6
+ADLS_FILE_SYSTEM_NAME=landing-zone
+ADLS_DIRECTORY_NAME=dados
+ADLS_SAS_TOKEN=sv=2022-11-02&ss=bfqt&srt=sco&sp=rwdlacupyx&se=2024-10-19T10:51:59Z&st=2024-10-19T02:51:59Z&spr=https&sig=WrawarjSCRJSWPs9jEuF1rtothhk0QLYbsxx920SwNA%3D
+
+# Configurações do SQL Server
+SQL_SERVER=localhost
+SQL_DATABASE=dados
+SQL_SCHEMA=relacional
+SQL_TABLE_NAME=sinistro
+SQL_USERNAME=sa
+SQL_PASSWORD=satc@2024
+
+MONGODB_URI=mongodb+srv://usuario:senha@m0-cluster-dev-data-eng.hkyhs91.mongodb.net/
+MONGODB_DATABASE=sample_mflix
+```
+
+Estrutura de arquivos do projeto:
+
+```
+.
+├── elt
+│   ├── azure_integration
+│   │   ├── adls_service.py
+│   │   ├── __init__.py
+│   │   └── __pycache__
+│   │       ├── adls_service.cpython-312.pyc
+│   │       └── __init__.cpython-312.pyc
+│   ├── database
+│   │   ├── __init__.py
+│   │   ├── __pycache__
+│   │   │   ├── __init__.cpython-312.pyc
+│   │   │   └── sql_server_service.cpython-312.pyc
+│   │   └── sql_server_service.py
+│   └── main.py
+├── elt_mongodb_n_collections.py
+├── elt_sql_1_tabela.py
+├── elt_sql_n_tabelas.py
+├── examples
+│   ├── elt_mongodb_n_collections.py
+│   ├── elt_sql_1_tabela.py
+│   └── elt_sql_n_tabelas.py
+├── pyproject.toml
+├── README.md
+├── test
+│   ├── test_connection_adls.py
+│   ├── test_connection_mongodb.py
+│   └── test_connection_sqlserver.py
+└── uv.lock
+```
+
 
 Para fazer a extração dos dados de um servidor SQL Server usando um Linux Ubuntu, através do PYODBC, você precisará instalar o driver ODBC do Microsoft SQL Server no Ubuntu (msodbcsql17). Esse driver permite que você se conecte a uma instância do SQL Server a partir de ferramentas ou linguagens que usam ODBC.
 
