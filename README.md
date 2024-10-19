@@ -1,4 +1,4 @@
-# PRojeto para Extração de dados de um SQL Server e carga em um Data Lake Storage da Azure (ADLS)
+# Projeto para Extração de dados de um SQL Server e Carga em um Data Lake Storage da Azure (ADLS)
 
 
 Para fazer a extração dos dados de um servidor SQL Server usando um Linux Ubuntu, através do PYODBC, você precisará instalar o driver ODBC do Microsoft SQL Server no Ubuntu (msodbcsql17), siga os passos abaixo. Esse driver permite que você se conecte a uma instância do SQL Server a partir de ferramentas ou linguagens que usam ODBC.
