@@ -7,7 +7,7 @@ Exemplo do arquivo `.env` que precisa ser criado para receber as credenciais de 
 ADLS_ACCOUNT_NAME=datalake2aee089e227c8fc6
 ADLS_FILE_SYSTEM_NAME=landing-zone
 ADLS_DIRECTORY_NAME=dados
-ADLS_SAS_TOKEN=sv=2022-11-02&ss=bfqt&srt=sco&sp=rwdlacupyx&se=2024-10-19T10:51:59Z&st=2024-10-19T02:51:59Z&spr=https&sig=WrawarjSCRJSWPs9jEuF1rtothhk0QLYbsxx920SwNA%3D
+ADLS_SAS_TOKEN=chave_sas_token
 
 # Configurações do SQL Server
 SQL_SERVER=localhost
@@ -15,7 +15,7 @@ SQL_DATABASE=dados
 SQL_SCHEMA=relacional
 SQL_TABLE_NAME=sinistro
 SQL_USERNAME=sa
-SQL_PASSWORD=satc@2024
+SQL_PASSWORD=senha_sa_sqlserver
 
 MONGODB_URI=mongodb+srv://usuario:senha@m0-cluster-dev-data-eng.hkyhs91.mongodb.net/
 MONGODB_DATABASE=sample_mflix
