@@ -1,5 +1,27 @@
 # Projeto para Extração de dados de um SQL Server e Carga em um Data Lake Storage da Azure (ADLS)
 
+Este projeto utiliza a versão `3.12` do Python, o gerenciador de projeto em Python `uv` (Universal Versioning) e as seguintes bibliotecas:
+
+```
+    "azure-core",
+    "azure-identity",
+    "azure-storage-file-datalake",
+    "pandas",
+    "pymongo",
+    "pyodbc",
+    "python-dotenv",
+    "ruff",
+    "sqlalchemy",
+```
+A versão de cada biblioteca dependerá da sua versão do Python.
+
+Caso você não tenha a versão `3.12` para usar este projeto, basta executar o comando abaixo (usando o gerenciador de projetos python `uv`):
+
+```bash
+uv python install 3.12
+```
+
+
 Exemplo do arquivo `.env` que precisa ser criado para receber as credenciais de acesso ao SQL Server, Azure ADLS e ao MongoDB.
 
 ```
