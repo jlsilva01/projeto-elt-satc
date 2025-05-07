@@ -46,7 +46,7 @@ SQL_TABLE_NAME=sinistro
 SQL_USERNAME=sa
 SQL_PASSWORD=senha_sa_sqlserver
 
-MONGODB_URI=mongodb+srv://usuario:senha@m0-cluster-dev-data-eng.hkyhs91.mongodb.net/
+MONGODB_URI=mongodb+srv://...
 MONGODB_DATABASE=sample_mflix
 ```
 
