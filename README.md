@@ -18,8 +18,8 @@ Para instalar as bibliotecas acima através do `uv` basta seguir o comando abaix
 
 ```bash
 uv venv # abrir o ambiente virtual caso nao tenha sido ativado ainda
-source .venv/bin/activate # ativar o ambiente virtual
-uv add azure-core azure-identity azure-storage-file-datalake pandas pymongo pyodbc python-dotenv ruff sqlalchemy
+source .venv/bin/activate # ativar o ambiente virtual para linux 
+uv sync # instala as libs presente no pyproject.toml
 ```
 
 Caso você não tenha a versão `3.12` para usar este projeto, basta executar o comando abaixo (usando o gerenciador de projetos python `uv`):
