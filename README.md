@@ -58,14 +58,8 @@ Estrutura de arquivos do projeto:
 │   ├── azure_integration
 │   │   ├── adls_service.py
 │   │   ├── __init__.py
-│   │   └── __pycache__
-│   │       ├── adls_service.cpython-312.pyc
-│   │       └── __init__.cpython-312.pyc
 │   ├── database
 │   │   ├── __init__.py
-│   │   ├── __pycache__
-│   │   │   ├── __init__.cpython-312.pyc
-│   │   │   └── sql_server_service.cpython-312.pyc
 │   │   └── sql_server_service.py
 │   └── main.py
 ├── elt_mongodb_n_collections.py
@@ -79,6 +73,7 @@ Estrutura de arquivos do projeto:
 ├── README.md
 ├── test
 │   ├── test_connection_adls.py
+│   ├── test_connection_mongodb.py
 │   └── test_connection_sqlserver.py
 └── uv.lock
 ```
