@@ -183,7 +183,7 @@ echo "deb [arch=amd64] https://packages.microsoft.com/ubuntu/22.04/prod jammy ma
 sudo apt-get update
 sudo ACCEPT_EULA=Y apt-get install -y msodbcsql17
 ```
-🧪 Testar driver instalado:
+Testar driver instalado:
 ```
 odbcinst -q -d -n "ODBC Driver 17 for SQL Server"
 ```
