@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from urllib.parse import quote_plus
 
 # Carregar variáveis de ambiente do arquivo .env
-load_dotenv()
+load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), ".env"), override=True)
 
 # Configurações do SQL Server
 server = os.getenv("SQL_SERVER")
