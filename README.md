@@ -1,6 +1,6 @@
 # Projeto para Extração de dados de um SQL Server e Carga em um Data Lake Storage da Azure (ADLS)
 
-Este projeto utiliza a versão `3.12` do Python, o gerenciador de projeto em Python `uv` (Universal Versioning) e as seguintes bibliotecas:
+Este projeto utiliza a versão `3.12` do Python, o gerenciador de projeto em Python `uv` (Universal Versioning) e as seguintes bibliotecas (estão no `pyproject.toml`):
 
 ```
     "azure-core",
