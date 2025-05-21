@@ -257,6 +257,7 @@ O `Dockerfile` foi personalizado para instalar o client *msodbcsql17* no contain
 Além disso, foram atualizados os arquivos `packages.txt` e `requirements.txt` com os pacotes/bibliotecas necessários para instalação nos containers do airflow.  
 
 Na pasta `./dags` são criadas as dags (atividades) para que, a partir da airflow UI possa ser orquestrado (agendamentos, execuções em batch, etc).
+Assim que elas são criadas na pasta /dags, elas aparecem automaticamente no airflow UI. Caso não apareçam ou estejam desatualizadas, você precisa reiniciar o airflow astro cli.
 
 `pyproject.toml` contém as libs necesárias para executar os arquivos locais, como os arquivos das pastas `./tests`, `examples` e `elt`.
 
