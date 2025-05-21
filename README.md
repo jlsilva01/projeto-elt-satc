@@ -1,5 +1,8 @@
 # Projeto para Extração de dados de um SQL Server e Carga em um Data Lake Storage da Azure (ADLS) + Airflow 3 Astro CLI 
 
+![image](https://github.com/user-attachments/assets/c2bdc91f-6dad-4534-b919-4c1dd5df4736)
+
+
 ## Container docker do SQL Server através do docker compose
 
 ### 1. Criar/iniciar um container docker do SQL Server, digitar o comando abaixo:
