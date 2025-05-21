@@ -104,7 +104,6 @@ Estrutura de arquivos do projeto:
 ├── elt
 │   ├── azure_integration
 │   │   ├── __init__.py
-│   │   │   └── adls_service.cpython-312.pyc
 │   │   └── adls_service.py
 │   ├── database
 │   │   ├── __init__.py
@@ -129,7 +128,7 @@ Estrutura de arquivos do projeto:
 └── uv.lock
 ```
 
-Estrutura macro:
+Explicação da estrutura de pastas macro:
 ```
 .
 .
