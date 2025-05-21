@@ -163,7 +163,7 @@ A mesma dinâmica vale para o destino (sendo azure), na pasta `azure_integration
 Caso seja alguma origem diferente de Azure, criar uma nova pasta dentro de `elt` e criar o arquivo de serviço para a tecnologia em questão.
 
 
-## Troubleshooting
+## Troubleshooting I
 
 > Se você estiver utilizando o S.O. Ubuntu para fazer a extração dos dados de um servidor SQL Server (através do PYODBC), é necessário instalar o driver ODBC do Microsoft SQL Server para Ubuntu (msodbcsql17). Esse driver permite que a conexão a uma instância do SQL Server a partir de ferramentas ou linguagens que usam ODBC.
 
@@ -199,6 +199,8 @@ sudo apt-get install mssql-tools unixodbc-dev
 odbcinst -q -d -n "ODBC Driver 17 for SQL Server"
 ```
 Se o driver foi instalado corretamente, você verá uma mensagem confirmando que o "ODBC Driver 17 for SQL Server" está disponível.
+
+## Troubleshooting II
 
 > Se voce estiver usando a versao 24.04 do Ubuntu e apareça esse warning...
 
