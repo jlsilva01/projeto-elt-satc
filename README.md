@@ -22,7 +22,7 @@ docker compose down
 
 ## Criação do Azure DataLake Storage
 
-Verifique o [README](/iac/adls/README) da pasta `/iac/adls`.
+Veja o [README](/iac/adls/README.md) da pasta `/iac/adls`.
 
 
 ## Execução dos Scripts Python para o ELT
