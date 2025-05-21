@@ -225,3 +225,64 @@ Testar driver instalado:
 ```
 odbcinst -q -d -n "ODBC Driver 17 for SQL Server"
 ```
+
+## Configuração do AirFlow - Astro CLI
+
+### 1. Iniciar o Airflow (astro):
+
+```
+astro dev start
+```
+
+### 2. Abrir o Airflow UI (webserver):
+
+```
+localhost:8080
+```
+
+### 3. Reiniciar o AirFlow
+```
+astro dev restart
+```
+
+### 4. Encerrar o AirFlow
+```
+astro dev stop
+```
+
+
+Pastas:
+
+.
+├── Dockerfile
+├── README.md
+├── airflow_settings.yaml
+├── dags
+│   ├── sqlserver_to_adls.py
+│   ├── validate_adls_connection.py
+│   └── validate_mssql_conenction.py
+├── examples
+│   └── elt_sql_n_tabelas.py
+├── include
+├── packages.txt
+├── plugins
+├── pyproject.toml
+├── requirements.txt
+├── sample.env
+├── tests
+│   └── dags
+│       └── test_dag_example.py
+└── uv.lock
+
+## NOTAS AIRFLOW:
+
+O `Dockerfile` foi personalizado para instalar o client *msodbcsql17* no container do airflow.  
+
+Além disso, foram atualizados os arquivos `packages.txt` e `requirements.txt` com os pacotes/bibliotecas necessários para instalação nos containers do airflow.  
+
+Na pasta `./dags` são criadas as dags (atividades) para que, a partir da Airflow UI possa ser orquestrado (agendamentos, execuções em batch, etc).
+
+`pyproject.toml` contém as libs necesárias para executar os arquivos locais, como os arquivos das pastas `./tests`, `examples` e `elt`.
+
+> Para executar as dags no airflow não é necessário ter as libs no pyproject.toml. Elas precisam estar no arquivo de `requirements.txt` (padrao do airflow astro cli para instalação dos mesmos nos containers do airflow).
+
