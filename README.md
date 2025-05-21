@@ -20,6 +20,10 @@ docker compose down
 ```
 ![image](https://github.com/user-attachments/assets/6966299f-3a94-4079-a1e6-21dbc43d2358)
 
+## Criação do Azure DataLake Storage
+
+Verifique o [README](/iac/adls/README) da pasta `/iac/adls`.
+
 
 ## Execução dos Scripts Python para o ELT
 
