@@ -250,31 +250,7 @@ astro dev restart
 astro dev stop
 ```
 
-
-Pastas:
-
-.
-├── Dockerfile
-├── README.md
-├── airflow_settings.yaml
-├── dags
-│   ├── sqlserver_to_adls.py
-│   ├── validate_adls_connection.py
-│   └── validate_mssql_conenction.py
-├── examples
-│   └── elt_sql_n_tabelas.py
-├── include
-├── packages.txt
-├── plugins
-├── pyproject.toml
-├── requirements.txt
-├── sample.env
-├── tests
-│   └── dags
-│       └── test_dag_example.py
-└── uv.lock
-
-## NOTAS AIRFLOW:
+# NOTAS AIRFLOW:
 
 O `Dockerfile` foi personalizado para instalar o client *msodbcsql17* no container do airflow.  
 
