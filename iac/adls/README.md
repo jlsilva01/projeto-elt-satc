@@ -39,7 +39,7 @@ az account set --subscription "Concierge Subscription"
 
 #### 6. Consultar o nome do Resource Group criado para a sua conta do Concierge Subscription
 ```bash copy
-az group list -o table
+az group list -o table | grep learn | awk '{print $1}'
 ```
 #### 7. Ajustar a variável *resource_group_name* do arquivo `variables.tf` com o nome do Resource Group informado no passo anterior
 ```terraform
@@ -80,3 +80,16 @@ terraform destroy
 ```
 
 > <b>Nota:</b> Caso queira usar o `apply` e `destroy` sem a necessidade confirmação, você pode usar a tag `-auto-approve` (use com bastante cuidado!).
+
+11. Gerar chave SAS através de linha de comando:
+
+```
+az storage account generate-sas \
+  --account-name datalake3582b629cbd5ccbc \
+  --permissions acdlrw \
+  --services b \
+  --resource-types sco \
+  --expiry 2025-06-01T00:00:00Z \
+  --https-only \
+  --output tsv
+```
