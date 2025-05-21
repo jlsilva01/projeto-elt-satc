@@ -250,13 +250,13 @@ astro dev restart
 astro dev stop
 ```
 
-# NOTAS AIRFLOW:
+## Observações sobre o ambiente do Airflow Astro CLI:
 
 O `Dockerfile` foi personalizado para instalar o client *msodbcsql17* no container do airflow.  
 
 Além disso, foram atualizados os arquivos `packages.txt` e `requirements.txt` com os pacotes/bibliotecas necessários para instalação nos containers do airflow.  
 
-Na pasta `./dags` são criadas as dags (atividades) para que, a partir da Airflow UI possa ser orquestrado (agendamentos, execuções em batch, etc).
+Na pasta `./dags` são criadas as dags (atividades) para que, a partir da airflow UI possa ser orquestrado (agendamentos, execuções em batch, etc).
 
 `pyproject.toml` contém as libs necesárias para executar os arquivos locais, como os arquivos das pastas `./tests`, `examples` e `elt`.
 
