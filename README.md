@@ -265,12 +265,12 @@ astro dev start
 localhost:8080
 ```
 
-### 3. Reiniciar o AirFlow
+### 3. Reiniciar o AirFlow:
 ```
 astro dev restart
 ```
 
-### 4. Encerrar o AirFlow
+### 4. Encerrar o AirFlow:
 ```
 astro dev stop
 ```
