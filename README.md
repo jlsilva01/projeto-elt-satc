@@ -1,5 +1,28 @@
 # Projeto para Extração de dados de um SQL Server e Carga em um Data Lake Storage da Azure (ADLS) + Airflow 3 Astro CLI 
 
+## Container docker do SQL Server através do docker compose
+
+### 1. Para criar/iniciar um container docker do SQL Server, digitar o comando abaixo:
+
+```
+cd docker/sqlserver/
+docker compose up -d
+```
+![image](https://github.com/user-attachments/assets/7a1fb296-ae4b-4697-87d1-1510b946b2d4)
+
+Assim que o banco de dados estiver no ar, atualize os parâmetros do SQL no arquivo `.env`.
+
+Para parar o container do SQL Server, digitar o comando abaixo:
+
+```
+cd docker/sqlserver/
+docker compose down
+```
+![image](https://github.com/user-attachments/assets/6966299f-3a94-4079-a1e6-21dbc43d2358)
+
+
+## Execução dos Scripts Python para o ELT
+
 Este projeto utiliza a versão `3.12` do Python, o gerenciador de projeto em Python `uv` (Universal Versioning) e as seguintes bibliotecas (estão no `pyproject.toml`):
 
 ```
