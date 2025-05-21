@@ -1,4 +1,4 @@
-# Projeto para Extração de dados de um SQL Server e Carga em um Data Lake Storage da Azure (ADLS)
+# Projeto para Extração de dados de um SQL Server e Carga em um Data Lake Storage da Azure (ADLS) + Airflow 3 Astro CLI 
 
 Este projeto utiliza a versão `3.12` do Python, o gerenciador de projeto em Python `uv` (Universal Versioning) e as seguintes bibliotecas (estão no `pyproject.toml`):
 
@@ -27,6 +27,12 @@ Caso você não tenha a versão `3.12` para usar este projeto, basta executar o 
 ```bash
 uv python install 3.12
 ```
+ou usando `pyenv`:
+
+```bash
+pyenv install 3.12
+pyenv local 3.12
+```
 
 
 Exemplo do arquivo `.env` que precisa ser criado para receber as credenciais de acesso ao SQL Server, Azure ADLS e ao MongoDB.
@@ -46,6 +52,7 @@ SQL_TABLE_NAME=sinistro
 SQL_USERNAME=sa
 SQL_PASSWORD=senha_sa_sqlserver
 
+# Configurações do MongoDB Atlas
 MONGODB_URI=mongodb+srv://...
 MONGODB_DATABASE=sample_mflix
 ```
@@ -54,29 +61,63 @@ Estrutura de arquivos do projeto:
 
 ```
 .
-├── elt
-│   ├── azure_integration
-│   │   ├── adls_service.py
-│   │   ├── __init__.py
-│   ├── database
-│   │   ├── __init__.py
-│   │   └── sql_server_service.py
-│   └── main.py
-├── elt_mongodb_n_collections.py
-├── elt_sql_1_tabela.py
-├── elt_sql_n_tabelas.py
-├── examples
-│   ├── elt_mongodb_n_collections.py
-│   ├── elt_sql_1_tabela.py
-│   └── elt_sql_n_tabelas.py
-├── pyproject.toml
+.
 ├── README.md
+├── astro
+│   ├── Dockerfile
+│   ├── README.md
+│   ├── airflow_settings.yaml
+│   ├── dags
+│   │   └── sqlserver_to_adls.py
+│   ├── include
+│   ├── packages.txt
+│   ├── plugins
+│   ├── requirements.txt
+│   ├── sample.env
+│   └── tests
+├── docker
+│   └── sqlserver
+│       └── docker-compose.yaml
+├── elt
+│   ├── azure_integration
+│   │   ├── __init__.py
+│   │   │   └── adls_service.cpython-312.pyc
+│   │   └── adls_service.py
+│   ├── database
+│   │   ├── __init__.py
+│   │   └── sql_server_service.py
+│   └── main.py
+├── examples
+│   ├── elt_mongodb_n_collections.py
+│   ├── elt_sql_1_tabela.py
+│   └── elt_sql_n_tabelas.py
+├── iac
+│   └── adls
+│       ├── README.md
+│       ├── main.tf
+│       ├── output.tf
+│       ├── provider.tf
+│       └── variables.tf
+├── pyproject.toml
 ├── test
-│   ├── test_connection_adls.py
-│   ├── test_connection_mongodb.py
-│   └── test_connection_sqlserver.py
+│   ├── test_connection_adls.py
+│   ├── test_connection_mongodb.py
+│   └── test_connection_sqlserver.py
 └── uv.lock
 ```
+
+Estrutura macro:
+```
+.
+.
+├── astro    <== Astro CLI Airflow
+├── docker   <== Docker compose SQL Server
+├── elt      <== Scripts Python ELT
+├── examples <== Exemplos de código Python
+├── iac      <== Terraform
+└── test     <== Teste de conexao nos recursos
+```
+
 
 ## Teste de Conectividade
 
