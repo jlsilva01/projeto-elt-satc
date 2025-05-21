@@ -286,5 +286,5 @@ Assim que elas são criadas na pasta /dags, elas aparecem automaticamente no air
 
 `pyproject.toml` contém as libs necesárias para executar os arquivos locais, como os arquivos das pastas `./tests`, `examples` e `elt`.
 
-> Para executar as dags no airflow não é necessário ter as libs no pyproject.toml. Elas precisam estar no arquivo de `requirements.txt` (padrao do airflow astro cli para instalação dos mesmos nos containers do airflow).
+> Para executar as dags no airflow não é necessário ter as libs no `pyproject.toml`. Elas precisam estar no arquivo de `requirements.txt` (padrao do airflow astro cli para instalação dos mesmos nos containers do airflow).
 
