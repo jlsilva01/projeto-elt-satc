@@ -165,7 +165,7 @@ Caso seja alguma origem diferente de Azure, criar uma nova pasta dentro de `elt`
 
 ## Troubleshooting
 
-### Caso você esteja utilizando o S.O. Ubuntu, para fazer a extração dos dados de um servidor SQL Server (através do PYODBC), é necessário instalar o driver ODBC do Microsoft SQL Server para Ubuntu (msodbcsql17). Esse driver permite que a conexão a uma instância do SQL Server a partir de ferramentas ou linguagens que usam ODBC.
+# 2o caso - Se você estiver utilizando o S.O. Ubuntu para fazer a extração dos dados de um servidor SQL Server (através do PYODBC), é necessário instalar o driver ODBC do Microsoft SQL Server para Ubuntu (msodbcsql17). Esse driver permite que a conexão a uma instância do SQL Server a partir de ferramentas ou linguagens que usam ODBC.
 
 ### 1. Importar a chave GPG da Microsoft
 
@@ -200,7 +200,7 @@ odbcinst -q -d -n "ODBC Driver 17 for SQL Server"
 ```
 Se o driver foi instalado corretamente, você verá uma mensagem confirmando que o "ODBC Driver 17 for SQL Server" está disponível.
 
-### Caso esteja usando a versao 24.04 do Ubuntu e apareça esse warning...
+# 2o caso - Se voce estiver usando a versao 24.04 do Ubuntu e apareça esse warning...
 
     Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).
 
