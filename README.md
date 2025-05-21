@@ -228,6 +228,9 @@ odbcinst -q -d -n "ODBC Driver 17 for SQL Server"
 
 ## Configuração do AirFlow - Astro CLI
 
+![image](https://github.com/user-attachments/assets/d5f69560-5997-4d00-a76a-dd239635d4d9)
+
+
 ### 1. Iniciar o Airflow (astro):
 
 ```
