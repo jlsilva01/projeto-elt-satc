@@ -2,7 +2,7 @@
 
 ## Container docker do SQL Server através do docker compose
 
-### 1. Para criar/iniciar um container docker do SQL Server, digitar o comando abaixo:
+### 1. Criar/iniciar um container docker do SQL Server, digitar o comando abaixo:
 
 ```
 cd docker/sqlserver/
@@ -12,7 +12,7 @@ docker compose up -d
 
 Assim que o banco de dados estiver no ar, atualize os parâmetros do SQL no arquivo `.env`.
 
-Para parar o container do SQL Server, digitar o comando abaixo:
+### 2. Parar o container do SQL Server, digitar o comando abaixo:
 
 ```
 cd docker/sqlserver/
