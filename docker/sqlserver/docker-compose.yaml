@@ -1,0 +1,11 @@
+services:
+  mssqlserver:
+    image: jlsilva01/satc-sql-server
+    container_name: satc-sql-server
+    hostname: satc-sql-server
+    restart: always
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "satc@2025"
+    ports:
+      - "1433:1433"
