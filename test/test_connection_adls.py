@@ -4,7 +4,15 @@ from dotenv import load_dotenv
 import sys
 
 # Carregar variáveis de ambiente do arquivo .env
+# Option 1: Current approach (correct)
 load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), "..", ".env"))
+
+# Option 2: More explicit approach using absolute path
+# project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# load_dotenv(dotenv_path=os.path.join(project_root, ".env"))
+
+# Option 3: Using relative path from current working directory
+# load_dotenv(dotenv_path=".env")
 
 # Recuperar informações da conta e do SAS Token a partir das variáveis de ambiente
 account_name = os.getenv("ADLS_ACCOUNT_NAME")

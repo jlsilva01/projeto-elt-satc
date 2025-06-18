@@ -33,15 +33,19 @@ Veja o [README](/iac/adls/README.md) da pasta `/iac/adls`.
 Este projeto utiliza a versão `3.12` do Python, o gerenciador de projeto em Python `uv` (Universal Versioning) e as seguintes bibliotecas (estão no `pyproject.toml`):
 
 ```
-    "azure-core",
-    "azure-identity",
-    "azure-storage-file-datalake",
-    "pandas",
-    "pymongo",
-    "pyodbc",
-    "python-dotenv",
-    "ruff",
-    "sqlalchemy",
+    "apache-airflow>=3.0.0",
+    "azure-core>=1.31.0",
+    "azure-identity>=1.19.0",
+    "azure-storage-file-datalake>=12.17.0",
+    "delta-spark==3.2.0",
+    "ipykernel>=6.29.5",
+    "pandas>=2.2.3",
+    "pymongo>=4.10.1",
+    "pyodbc>=5.2.0",
+    "pyspark==3.5.3",
+    "python-dotenv>=1.0.1",
+    "ruff>=0.7.0",
+    "sqlalchemy>=1.4.49,<2.0"
 ```
 
 Para instalar as bibliotecas acima através do `uv` basta seguir o comando abaixo:
@@ -69,18 +73,25 @@ Exemplo do arquivo `.env` que precisa ser criado para receber as credenciais de 
 
 ```
 # Configurações do Azure Data Lake Storage
-ADLS_ACCOUNT_NAME=datalake2aee089e227c8fc6
+ADLS_ACCOUNT_NAME=nome-adls-gen2
 ADLS_FILE_SYSTEM_NAME=landing-zone
-ADLS_DIRECTORY_NAME=dados
+ADLS_BRONZE_CONTAINER=bronze
+ADLS_SILVER_CONTAINER=silver
 ADLS_SAS_TOKEN=chave_sas_token
+ADLS_DIRECTORY_NAME=dados
+
+ADLS_SP_CLIENT_ID=cliente-id
+ADLS_SP_CLIENT_SECRET=secret-value
+ADLS_SP_TENANT_ID=tenant-id
+
 
 # Configurações do SQL Server
 SQL_SERVER=localhost
 SQL_DATABASE=dados
 SQL_SCHEMA=relacional
 SQL_TABLE_NAME=sinistro
-SQL_USERNAME=sa
-SQL_PASSWORD=senha_sa_sqlserver
+SQL_USERNAME=login_sqlserver
+SQL_PASSWORD=senha_login_sqlserver
 
 # Configurações do MongoDB Atlas
 MONGODB_URI=mongodb+srv://...
@@ -93,11 +104,16 @@ Estrutura de arquivos do projeto:
 .
 .
 ├── README.md
+├── assets
+│   └── airflow_screen.jpg
 ├── astro
 │   ├── Dockerfile
 │   ├── README.md
 │   ├── airflow_settings.yaml
 │   ├── dags
+│   │   ├── bronze_to_silver.py
+│   │   ├── complete_elt_pipeline.py
+│   │   ├── landing_to_bronze.py
 │   │   └── sqlserver_to_adls.py
 │   ├── include
 │   ├── packages.txt
@@ -131,6 +147,7 @@ Estrutura de arquivos do projeto:
 ├── test
 │   ├── test_connection_adls.py
 │   ├── test_connection_mongodb.py
+│   ├── test_spark_adls_connection.py
 │   └── test_connection_sqlserver.py
 └── uv.lock
 ```
@@ -139,12 +156,13 @@ Explicação da estrutura de pastas macro:
 ```
 .
 .
-├── astro    <== Astro CLI Airflow
-├── docker   <== Docker compose SQL Server
-├── elt      <== Scripts Python ELT
-├── examples <== Exemplos de código Python
-├── iac      <== Terraform
-└── test     <== Teste de conexao nos recursos
+├── astro     <== Astro CLI Airflow
+├── docker    <== Docker compose SQL Server
+├── elt       <== Scripts Python ELT
+├── examples  <== Exemplos de código Python
+├── iac       <== Terraform
+├── notebooks <== Notebooks jupyter para exploracao de dados
+└── test      <== Teste de conexao nos recursos
 ```
 
 
@@ -160,6 +178,7 @@ source .venv/bin/activate
 ```bash
 uv run ./test/test_connection_adls.py
 uv run ./test/test_connection_sqlserver.py
+uv run ./test/test_spark_adls_connection.py
 ```
 
 ## Efetuando a cópia dos dados do SQL e jogando no Azure ADLS
@@ -190,6 +209,10 @@ uv run ./elt/main.py
 Esta estrutura é escalável, pois caso necessite adicionar mais um banco de dados de origem, basta criar as classes e métodos do banco de dados em questão e adicionar o arquivo a pasta `database`.
 A mesma dinâmica vale para o destino (sendo azure), na pasta `azure_integration`.
 Caso seja alguma origem diferente de Azure, criar uma nova pasta dentro de `elt` e criar o arquivo de serviço para a tecnologia em questão.
+
+## Exploração dos dados nos containers Azure ADLS Gen2
+
+Para exploração dos dados nos containers usando spark, você pode usar o jupyter notebook `notebooks/spark_explorer.ipynb`.
 
 
 ## Troubleshooting I

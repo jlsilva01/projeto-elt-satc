@@ -19,7 +19,7 @@ from dotenv import load_dotenv
 def sqlserver_to_adls_dag():
 
     @task()
-    def extract_sqlserver_and_upload_azure_adls():
+    def process_sqlserver_to_adls():
 
         load_dotenv()
 
@@ -63,6 +63,6 @@ def sqlserver_to_adls_dag():
             file_client.upload_data(df.to_csv(index=False).encode(), overwrite=True)
             print(f"Dados da tabela '{table_name}' enviados com sucesso.")
 
-    extract_sqlserver_and_upload_azure_adls()
+    process_sqlserver_to_adls()
 
 dag = sqlserver_to_adls_dag()

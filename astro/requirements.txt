@@ -6,3 +6,5 @@ pandas
 sqlalchemy
 pyodbc
 python-dotenv
+pyspark==3.5.3
+delta-spark==3.2.0
