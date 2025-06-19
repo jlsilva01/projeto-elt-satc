@@ -1,7 +1,10 @@
 [project]
 name = "projeto-etl-satc"
 version = "0.1.0"
-description = "Add your description here"
+description = "Projeto ELT usando spark, delta lake, airflow, sql server e azure adls gen2"
+authors = [
+    {name = "Jorge Luiz da Silva", email = "jlsilva01@outlook.com"}
+]
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
