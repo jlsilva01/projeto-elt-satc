@@ -4,5 +4,7 @@ variable "resource_group_name" {
 }
 
 variable "location" {
-  default = "westus"
+  default = "brazilsouth"
 }
+
+
